@@ -1,5 +1,18 @@
 # Changelog
 
+## \[0.24.0]
+
+- [`43c94f0b`](https://github.com/tauri-apps/tao/commit/43c94f0b2021d3831846c53bfd268cdda2c87b51)([#830](https://github.com/tauri-apps/tao/pull/830)) This patch contains a couple of changes to how the anroid macros:
+
+  - Changed `android_binding` macro 4th argument signature, which is a setup function that is called once when the event loop is first created, from `unsafe fn(JNIEnv, &ForeignLooper, GlobalRef)` to `unsafe fn(&str, JNIEnv, &ForeignLooper, GlobalRef)`.
+  - Moved `android_fn!` and `generate_package_name` macro from crate root `platform::android::prelude`
+- [`f497b5dc`](https://github.com/tauri-apps/tao/commit/f497b5dc828c202376f37ed835d5fd48b1a93530)([#829](https://github.com/tauri-apps/tao/pull/829)) Add `Window::drag_resize_window` and `ResizeDirection` enum to initialize window resizing. Supported on Windows and Linux only.
+- [`853101be`](https://github.com/tauri-apps/tao/commit/853101bea465098e56756aa700c4d50f503ee95a)([#821](https://github.com/tauri-apps/tao/pull/821)) This release includes an update to `raw-window-handle` crate to `0.6` but will also provide a feature flags to select which `raw-window-handle` to use:
+
+  - `rwh_06` (default): `raw-window-handle@0.6`
+  - ` rwh_05:  `raw-window-handle@0.5\`
+  - ` rwh_04:  `raw-window-handle@0.4\`
+
 ## \[0.23.0]
 
 - [`cf22c902`](https://github.com/tauri-apps/tao/commit/cf22c902d4c961be0f6cfba6a8c865e11073b027)([#85](https://github.com/tauri-apps/tao/pull/85)) **Breaking change**: Removed clipboard implementation. Use `arboard` crate instead.
